@@ -1,0 +1,40 @@
+.header-main {
+    background-color: $color-main-dark;
+    .header-main-wrapper {
+        @include flexbox(row, space-between, center);
+        padding: 1rem 2rem;
+        }
+    .logo-main {
+        font-family: $font-title;
+        color: $color-main-light;
+        @include fluid-font(25px, 40px);
+        display: inline-block;
+        span {
+            color: $color-main-blue;
+        }
+    }
+   
+}
+
+.form-search {
+    display: inline-block;
+    border-radius: 8px;
+    overflow: hidden;
+    @include flexbox (row, center, center);
+    .input-search-qry, .input-search-cat {
+        padding: 15px 25px;
+        border: none;
+    }
+    .input-search-qry {
+        min-width: 250px;
+    }
+    .input-search-cat {
+        border-left: 2px solid #c8c8c8;
+    }
+}
+
+.menu-user {
+    color: $color-main-light;
+    @include fluid-font(14px, 18px);
+    @include flexbox(row, center, center);
+}

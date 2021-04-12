@@ -1,0 +1,22 @@
+<header class="header-main">
+    <div class="container header-main-wrapper">
+        <h1 class="logo-main">e-<span>book</span>STR</h1>
+        <form class="form-search" method="GET" action="">
+            <input type="text" name="search_qry" placeholder="find a book..." class="input-search-qry">
+            <select class="input-search-cat" name="search_cat">
+                <option value="0" selected>Any category</option>
+                {# render categories from db here #}
+                <option value="1">Books</option>
+                <option value="2">E-books</option>
+                <option value="3">Audiobooks</option>
+            </select>
+        </form>
+        <ul class="menu-user">
+            <li class="navbar-menu-item">Log In</li>
+            <li class="navbar-menu-item">Cart</li>
+        </ul>
+        <nav class="navbar">
+            
+        </nav>
+    </div>
+</header>

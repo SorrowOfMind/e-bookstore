@@ -1,0 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    box-shadow: none;
+    font-family: inherit;
+}
+
+html, body {
+    min-height: 100%;
+    font-size: 10px;
+    scroll-behavior: smooth;
+}
+
+*:after, *:before {
+    box-shadow: inherit;
+    font-size: inherit;
+}
