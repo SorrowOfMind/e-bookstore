@@ -21,15 +21,32 @@
     border-radius: 8px;
     overflow: hidden;
     @include flexbox (row, center, center);
-    .input-search-qry, .input-search-cat {
+    .search-categories-wrapper{
+        @include flexbox (row, center, center);
+    }
+    .input-search-qry, .search-categories-btn {
         padding: 15px 25px;
         border: none;
     }
     .input-search-qry {
         min-width: 250px;
     }
-    .input-search-cat {
+    .search-categories-btn {
         border-left: 2px solid #c8c8c8;
+        padding-right: 40px;
+        cursor: pointer;
+    }
+    .search-categories-dropdown {
+        display: none;
+    }
+    .material-icons.search {
+        font-size: 36px;
+        color: $color-main-light;
+        display: inline-block;
+        height: 100%;
+        background-color: $color-main-blue;
+        padding: 4px 5px 5px 5px;
+        cursor: pointer;
     }
 }
 

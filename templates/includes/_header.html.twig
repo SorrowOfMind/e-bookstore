@@ -3,17 +3,25 @@
         <h1 class="logo-main">e-<span>book</span>STR</h1>
         <form class="form-search" method="GET" action="">
             <input type="text" name="search_qry" placeholder="find a book..." class="input-search-qry">
-            <select class="input-search-cat" name="search_cat">
-                <option value="0" selected>Any category</option>
-                {# render categories from db here #}
-                <option value="1">Books</option>
-                <option value="2">E-books</option>
-                <option value="3">Audiobooks</option>
-            </select>
+            <div class="search-categories-wrapper">
+                <button type="button" class="search-categories-btn" value="Any category">Any category</button>
+                <div class="search-categories-dropdown">
+                    {# render categories from db here #}
+                    <input type="radio" name="" id="_sc0">
+                    <label for="_sc0">Any category</label>
+                </div>
+                <i class="material-icons search">search</i>
+            </div>
         </form>
         <ul class="menu-user">
-            <li class="navbar-menu-item">Log In</li>
-            <li class="navbar-menu-item">Cart</li>
+            <li class="navbar-menu-item">
+                <span class="material-icons">account_circle</span>
+                Log In
+            </li>
+            <li class="navbar-menu-item">
+                <span class="material-icons">shopping_cart</span>
+                Cart
+            </li>
         </ul>
         <nav class="navbar">
             
