@@ -1,0 +1,17 @@
+html {
+    font-family: $font-main;
+    color: $color-font-main;
+}
+
+body {
+    background-color: $color-bg;
+}
+
+.container {
+    max-width: 1250px;
+    margin: 0 auto;
+}
+
+ul {
+    list-style-type: none;
+}

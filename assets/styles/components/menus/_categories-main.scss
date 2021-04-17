@@ -1,0 +1,39 @@
+.categories-menu {
+    font-size: 1.6rem;
+    @include flexbox(row, flex-start, stretch);
+    position: relative;
+}
+
+.categories-list {
+    background-color: #fff;
+    padding: 2rem;
+    width:205px;
+    .categories-list-item {
+        padding: 2rem 0;
+        position: relative;
+        cursor: pointer;
+        transition: color .1s linear;
+        .category-arrow-right {
+            font-size: 18px;
+            color: $color-icon;
+            position: absolute;
+            bottom: 2rem;
+            right: 1rem;
+        }
+        &:hover, &:hover > .category-arrow-right  {
+            color: $color-main-blue;
+        }
+    }
+}
+
+.subcategories-list {
+    position: absolute;
+    left: calc(-100% + 205px);
+    background-color: #fff;
+    width: 100%;
+    border: 1px solid red;
+}
+
+@keyframes slide {
+
+}

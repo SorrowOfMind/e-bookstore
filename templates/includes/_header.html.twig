@@ -1,0 +1,36 @@
+<header class="header-main">
+    <div class="container header-main-wrapper">
+        <h1 class="logo-main">e-<span>book</span>STR</h1>
+        <form class="form-search" method="GET" action="">
+            <input type="text" name="search_qry" placeholder="find a book..." class="input-search-qry">
+            <div class="search-categories-wrapper">
+                <button type="button" class="search-categories-btn" value="Any category">Any category</button>
+                <div class="search-categories-dropdown">
+                    {# render categories from db here #}
+                    <input type="radio" name="" id="_sc0">
+                    <label for="_sc0">Any category</label>
+                </div>
+                <i class="material-icons search">search</i>
+            </div>
+        </form>
+        <ul class="menu-user">
+            <li class="menu-user-item">
+                <span class="material-icons menu-icon">account_circle</span>
+                Log In
+            </li>
+            <li class="menu-user-item">
+                <span class="material-icons menu-icon">shopping_cart</span>
+                Cart
+            </li>
+        </ul>
+    </div>
+    <nav class="navbar container">
+        <ul class="menu-books">
+            <li class="menu-books-item">
+                ALL CATEGORIES<span class="material-icons menu-book-icon">expand_more</span>
+            </li>
+            <li class="menu-books-item">TOP Deals</li>
+            <li class="menu-books-item">What's new?</li>
+        </ul>
+    </nav>
+</header>

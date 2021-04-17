@@ -1,0 +1,97 @@
+.header-main {
+    background-color: $color-main-dark;
+    .header-main-wrapper {
+        @include flexbox(row, space-between, center);
+        padding: 1rem 2rem;
+        border-bottom: 1px solid $color-main-light;
+    }
+    .logo-main {
+        font-family: $font-title;
+        color: $color-main-light;
+        @include fluid-font(25px, 40px);
+        display: inline-block;
+        span {
+            color: $color-main-blue;
+        }
+    }
+}
+
+.form-search {
+    display: inline-block;
+    border-radius: 8px;
+    overflow: hidden;
+    @include flexbox (row, center, center);
+    .search-categories-wrapper{
+        @include flexbox (row, center, center);
+    }
+    .input-search-qry, .search-categories-btn {
+        padding: 15px 25px;
+        border: none;
+    }
+    .input-search-qry {
+        min-width: 300px;
+    }
+    .search-categories-btn {
+        border-left: 2px solid #c8c8c8;
+        padding-right: 40px;
+        cursor: pointer;
+    }
+    .search-categories-dropdown {
+        display: none;
+    }
+    .material-icons.search {
+        font-size: 36px;
+        color: $color-main-light;
+        display: inline-block;
+        height: 100%;
+        background-color: $color-main-blue;
+        padding: 4px 5px 5px 5px;
+        cursor: pointer;
+    }
+}
+
+.menu-user, .menu-books {
+    color: $color-main-light;
+    @include fluid-font(14px, 16px);
+}
+
+.menu-user {
+    @include flexbox(row, center, center);
+    .menu-user-item {
+        @include flexbox(row, center, center);
+        &:first-child {
+            margin-right: 2rem;
+        }
+        .menu-icon {
+            margin-right: 0.5rem;
+        }
+    }
+}
+
+.navbar {
+    padding: 1rem 2rem;
+}
+
+.menu-books {
+    @include flexbox(row, flex-start, center);
+    .menu-books-item {
+        padding: 0 2rem;
+        cursor: pointer;
+        &:first-child {
+            cursor: default;
+            padding: 0 6rem 0 0;
+            position: relative;
+            .menu-book-icon {
+                position: absolute;
+                right: 1.5rem;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+        &:not(:last-child) {
+            border-right: 1px solid $color-main-light;
+       }
+    }
+    
+   
+}
