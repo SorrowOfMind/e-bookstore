@@ -3,5 +3,18 @@
 {% block title %}Welcome to e-bookSTR!{% endblock %}
 
 {% block body %}
-   
+<main class="container">
+    <section class="categories-menu">
+        <ul class="categories-list">
+            {% for category in categories %}
+                <li class="categories-list-item">{{ category.name | capitalize }} 
+                    <span class="material-icons category-arrow-right">chevron_right</span>
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
+    <section class="banner-main">
+        
+    </section>
+</main>
 {% endblock %}
