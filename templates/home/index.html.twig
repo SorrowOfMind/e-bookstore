@@ -9,6 +9,15 @@
             {% for category in categories %}
                 <li class="categories-list-item">{{ category.name | capitalize }} 
                     <span class="material-icons category-arrow-right">chevron_right</span>
+                    <ul class="subcategories-list">
+                        {% for categoryName, subcategory in subcategories %}
+                            {% if categoryName == category.name %}
+                                {% for subcategoryName in subcategory %}
+                                    <li class="subcategories-list-item">{{ subcategoryName }}</li>
+                                {% endfor %}
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
                 </li>
             {% endfor %}
         </ul>

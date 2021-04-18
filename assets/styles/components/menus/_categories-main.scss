@@ -28,11 +28,19 @@
 
 .subcategories-list {
     position: absolute;
-    left: calc(-100% + 205px);
+    right: calc(-100% - 2rem);
+    top: -2rem;
     background-color: #fff;
     width: 100%;
-    border: 1px solid red;
+    // border: 1px solid red;
+    .subcategories-list-item {
+        display: none;
+    }
+    .subcategories-list-item.active {
+        display: inline-block;
+    } 
 }
+
 
 @keyframes slide {
 

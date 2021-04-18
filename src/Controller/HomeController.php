@@ -14,7 +14,19 @@ class HomeController extends AbstractController
     public function index(): Response
     {
         $categories = $this->getDoctrine()->getRepository(Categories::class)->findAll();
+        // $sub = $categories->getSubcategories();
+        // foreach ($sub as $s){
+        //     dump($s->getName());
+        // }
+        $subcategoriesNames = [];    
+        foreach($categories as $category){
+            $subcategories = $category->getSubcategories();
+            foreach($subcategories as $subcategory){
+                $subcategoriesNames[$category->getName()][] = $subcategory->getName();
+            }
+        }
+        dump($subcategoriesNames);
 
-        return $this->render('home/index.html.twig', ['categories' => $categories]);
+        return $this->render('home/index.html.twig', ['categories' => $categories, 'subcategories' => $subcategoriesNames]);
     }
 }
