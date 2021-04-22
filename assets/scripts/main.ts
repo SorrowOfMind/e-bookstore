@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function(){
         
         for (let category of categories){
             category.addEventListener('mouseover', function(){
-                const subcategories = this.querySelectorAll('.subcategories-list-item');
+                const subcategories = this.querySelectorAll('.subcategories-list');
                 this.classList.add('active-category');
                 for (let subcategory of subcategories){
                     subcategory.classList.add('active');
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
             });
             category.addEventListener('mouseleave', function(){
-                const subcategories = this.querySelectorAll('.subcategories-list-item');
+                const subcategories = this.querySelectorAll('.subcategories-list');
                 this.classList.remove('active-category');
                 for (let subcategory of subcategories){
                     subcategory.classList.remove('active');

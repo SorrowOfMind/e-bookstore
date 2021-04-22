@@ -1,16 +1,15 @@
 .categories-menu {
     font-size: 1.6rem;
     @include flexbox(row, flex-start, stretch);
-    position: relative;
 }
 
 .categories-list {
     background-color: #fff;
-    padding: 2rem;
+    padding: 2rem 0;
     width:205px;
     position: relative;
     .categories-list-item {
-        padding: 2rem 0;
+        padding: 2rem;
         cursor: pointer;
         transition: color .1s linear;
         .categories-link {
@@ -32,16 +31,20 @@
 
 .subcategories-list {
     position: absolute;
-    right: -100%;
+    left: 100%;
     top: 0;
     background-color: #fff;
-    width: 100%;
-    .subcategories-list-item {
-        display: none;
+    height: 100%;
+    width: 1045px;
+    display: none;
+    color: initial;
+    &.active {
+        display: inline-grid;
+        border-left: 1px solid $color-bg;
+        padding: 4rem 2rem;
+        grid-template-columns: repeat(3, 250px);
+        align-content: space-between;
     }
-    .subcategories-list-item.active {
-        display: inline-block;
-    } 
 }
 
 
