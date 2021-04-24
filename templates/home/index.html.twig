@@ -3,29 +3,37 @@
 {% block title %}Welcome to e-bookSTR!{% endblock %}
 
 {% block body %}
+{% set banners = [1,2,3]%}
 <main class="container">
-    <section class="categories-menu">
-        <ul class="categories-list">
-            {% for category in categories %}
-                <li class="categories-list-item">
-                    <a href="." class="categories-link">{{ category.name | capitalize }}
-                        <span class="material-icons category-arrow-right">chevron_right</span>
-                    </a> 
-                    <ul class="subcategories-list">
-                        {% for categoryName, subcategory in subcategories %}
-                            {% if categoryName == category.name %}
-                                {% for subcategoryName in subcategory %}
-                                    <li class="subcategories-list-item">{{ subcategoryName }}</li>
-                                {% endfor %}
-                            {% endif %}
-                        {% endfor %}
-                    </ul>
-                </li>
-            {% endfor %}
-        </ul>
+    <section class="section-big-menu">
+        <section class="categories-menu">
+            <ul class="categories-list">
+                {% for category in categories %}
+                    <li class="categories-list-item">
+                        <a href="." class="categories-link">{{ category.name | capitalize }}
+                            <span class="material-icons category-arrow-right">chevron_right</span>
+                        </a> 
+                        <ul class="subcategories-list">
+                            {% for categoryName, subcategory in subcategories %}
+                                {% if categoryName == category.name %}
+                                    {% for subcategoryName in subcategory %}
+                                        <li class="subcategories-list-item">{{ subcategoryName }}</li>
+                                    {% endfor %}
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </li>
+                {% endfor %}
+            </ul>
+        </section>
+        <section class="banner-main">
+			<div class="banner-wrapper">
+				<img class="banner-main" src={{ asset('build/banner1.jpg') }} alt="banner">
+			</div>
+        </section>
     </section>
-    <section class="banner-main">
-        
-    </section>
+	<script type="text/javascript">
+		let banners = JSON.parse('{{ banners | json_encode }}');
+	</script>
 </main>
 {% endblock %}

@@ -6,19 +6,18 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Categories;
-use App\Entity\Subcategories;
+use App\Entity\Banners;
 
 class HomeController extends AbstractController
 {
     #[Route('/', name: 'home')]
     public function index(): Response
     {
+        //fetch categories + subcategories
         $categories = $this->getDoctrine()->getRepository(Categories::class)->findAll();
-        // $sub = $categories->getSubcategories();
-        // foreach ($sub as $s){
-        //     dump($s->getName());
-        // }
+       
         $subcategoriesNames = [];    
+
         foreach($categories as $category){
             $subcategories = $category->getSubcategories();
             foreach($subcategories as $subcategory){
@@ -27,6 +26,14 @@ class HomeController extends AbstractController
         }
         dump($subcategoriesNames);
 
-        return $this->render('home/index.html.twig', ['categories' => $categories, 'subcategories' => $subcategoriesNames]);
+        //fetch banners;
+        $banners = $this->getDoctrine()->getRepository(Banners::class)->findBy(['role' => 'main']);
+
+        return $this->render('home/index.html.twig', 
+                            [
+                                'categories' => $categories, 
+                                'subcategories' => $subcategoriesNames,
+                                'banners'=> $banners
+                            ]);
     }
 }
