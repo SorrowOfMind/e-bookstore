@@ -24,11 +24,11 @@ class HomeController extends AbstractController
                 $subcategoriesNames[$category->getName()][] = $subcategory->getName();
             }
         }
-        dump($subcategoriesNames);
+        
 
         //fetch banners;
         $banners = $this->getDoctrine()->getRepository(Banners::class)->findBy(['role' => 'main']);
-
+        dump($banners);
         return $this->render('home/index.html.twig', 
                             [
                                 'categories' => $categories, 

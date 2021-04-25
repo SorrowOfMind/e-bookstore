@@ -40,7 +40,7 @@
     top: 0;
     background-color: #fff;
     height: 100%;
-    width: 1045px;
+    width: 895px;
     display: none;
     color: initial;
     z-index: 100;
@@ -53,49 +53,49 @@
     }
 }
 
-.banner-wrapper {
+.banner-main-container {
     position: relative;
     z-index: 1;
-    transition: opacity 0.5;
-    &:before, &:after {
-        font-family: 'Material Icons';
-        font-size: 48px;
-        -webkit-font-feature-settings: 'liga' 1;
-        -moz-font-feature-settings: 'liga' 1;
-        font-feature-settings: 'liga' 1;
+    height: 400px;
+    width: 895px;
+    overflow: hidden;
+    .banner-btn {
         position: absolute;
         width: 4rem;
         height: 4rem;
         background-color: #fff;
-        border-radius: 50%;
         @include flexbox(row, center, center);
+        border-radius: 50%;
         top: 50%;
         transform: translateY(-50%);
         cursor: pointer;
-        color: $color-icon;
-        opacity: 0;
-    }
-    &:before {
-        content: 'chevron_left';
-        left: 1rem;
-     
-    }
-    &:after {
-        content: 'chevron_right';
-        right: 1rem;
-    }
-    &:hover:before, &:hover:after {
-        opacity: 100%;
+        &:hover {
+            background-color: rgba(255,255,255, 0.5);
+        }
     }
 
+    .btn-prev {
+        left: 1.5rem;
+    }
+
+    .btn-next {
+        right: 1.5rem;
+    }
+}
+
+.banner-wrapper {
+    @include flexbox(row, flex-start, stretch);
     .banner-main {
-        max-height: 400px;
-        width: 1045px;
+        width: 895px;
         object-fit: cover;
+        // opacity: 0;
+        // position: absolute;
+        // top: 0;
+        // right: 0;
+    }
+
+    .banner-main.active {
+        // opacity: 1;
     }
 }
 
-
-@keyframes slide {
-
-}

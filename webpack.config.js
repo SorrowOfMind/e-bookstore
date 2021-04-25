@@ -16,7 +16,7 @@ Encore
 
     .copyFiles({
         from: './assets/files/banners',
-        //to: 'files/banners/[path][name].[hash:8].[ext]'
+        to: 'images/[path][name].[ext]'
     })
 
     /*
