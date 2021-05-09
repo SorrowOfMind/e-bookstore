@@ -1,39 +1,101 @@
+.section-big-menu{
+    @include flexbox(row, flex-start, stretch);
+    height: max-content;
+}
+
 .categories-menu {
     font-size: 1.6rem;
     @include flexbox(row, flex-start, stretch);
-    position: relative;
 }
 
 .categories-list {
     background-color: #fff;
-    padding: 2rem;
-    width:205px;
+    padding: 2rem 0;
+    width: 205px;
+    position: relative;
     .categories-list-item {
-        padding: 2rem 0;
-        position: relative;
+        padding: 2rem;
         cursor: pointer;
         transition: color .1s linear;
+        .categories-link {
+            display: inline-block;
+            width: 100%;
+            position: relative;
+        }
         .category-arrow-right {
             font-size: 18px;
-            color: $color-icon;
+            // color: $color-icon;
             position: absolute;
-            bottom: 2rem;
-            right: 1rem;
+            right: 0;
         }
         &:hover, &:hover > .category-arrow-right  {
-            color: $color-main-blue;
+            color: $color-main-blue !important;
         }
     }
 }
 
 .subcategories-list {
     position: absolute;
-    left: calc(-100% + 205px);
+    left: 100%;
+    top: 0;
     background-color: #fff;
-    width: 100%;
-    border: 1px solid red;
+    height: 100%;
+    width: 895px;
+    display: none;
+    color: initial;
+    z-index: 100;
+    &.active {
+        display: inline-grid;
+        border-left: 1px solid $color-bg;
+        padding: 4rem 2rem;
+        grid-template-columns: repeat(3, 250px);
+        align-content: space-between;
+    }
 }
 
-@keyframes slide {
+.banner-main-container {
+    position: relative;
+    z-index: 1;
+    height: 400px;
+    width: 895px;
+    overflow: hidden;
+    .banner-btn {
+        position: absolute;
+        width: 4rem;
+        height: 4rem;
+        background-color: #fff;
+        @include flexbox(row, center, center);
+        border-radius: 50%;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        &:hover {
+            background-color: rgba(255,255,255, 0.5);
+        }
+    }
 
+    .btn-prev {
+        left: 1.5rem;
+    }
+
+    .btn-next {
+        right: 1.5rem;
+    }
 }
+
+.banner-wrapper {
+    @include flexbox(row, flex-start, stretch);
+    .banner-main {
+        width: 895px;
+        object-fit: cover;
+        // opacity: 0;
+        // position: absolute;
+        // top: 0;
+        // right: 0;
+    }
+
+    .banner-main.active {
+        // opacity: 1;
+    }
+}
+

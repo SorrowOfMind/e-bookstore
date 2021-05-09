@@ -3,5 +3,55 @@
 {% block title %}Welcome to e-bookSTR!{% endblock %}
 
 {% block body %}
-   
+<main class="container">
+    <section class="section-big-menu">
+        <section class="categories-menu">
+            <ul class="categories-list">
+                {% for category in categories %}
+                    <li class="categories-list-item">
+                        <a href="." class="categories-link">{{ category.name | capitalize }}
+                            <span class="material-icons category-arrow-right">chevron_right</span>
+                        </a> 
+                        <ul class="subcategories-list">
+                            {% for categoryName, subcategory in subcategories %}
+                                {% if categoryName == category.name %}
+                                    {% for subcategoryName in subcategory %}
+                                        <li class="subcategories-list-item">{{ subcategoryName }}</li>
+                                    {% endfor %}
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </li>
+                {% endfor %}
+            </ul>
+        </section>
+        <section class="banner-main-container">
+			<div class="banner-wrapper">
+                <div class="banner-swiper banner-swiper-duplicate" id="swiper-last-clone">
+                    <img class="banner-main" src={{ asset('build' ~ banners[(banners|length) - 1].path) }} alt="banner">
+                </div>
+
+                {% for banner in banners %}
+                    <div class="banner-swiper">
+                        <img {{ (banner.id == 1) ? "class='banner-main active'" : "class='banner-main'"}} src={{ asset('build' ~ banner.path) }} alt="banner">
+                    </div>
+                {% endfor %}
+
+                <div class="banner-swiper banner-swiper-duplicate" id="swiper-first-clone">
+                    <img class="banner-main" src={{ asset('build' ~ banners[0].path) }} alt="banner">
+                </div>
+			</div>
+            <button class="banner-btn btn-prev" id="banner-btn-prev">
+                <span class="material-icons">chevron_left</span>
+            </button>
+            <button class="banner-btn btn-next" id="banner-btn-next">
+                <span class="material-icons">chevron_right</span>
+            </button>
+
+            <ul class="banner-markers">
+
+            </ul>
+        </section>
+    </section>
+</main>
 {% endblock %}
