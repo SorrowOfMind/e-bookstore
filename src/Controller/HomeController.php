@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Categories;
 use App\Entity\Banners;
+use App\Entity\Products;
 
 class HomeController extends AbstractController
 {
@@ -28,7 +29,11 @@ class HomeController extends AbstractController
 
         //fetch banners;
         $banners = $this->getDoctrine()->getRepository(Banners::class)->findBy(['role' => 'main']);
-        dump($banners);
+        
+        //fetch sections - bestsellers, top deals, previews
+        $products = $this->getDoctrine()->getRepository(Products::class)->getBestsellers();
+        dump($products);
+
         return $this->render('home/index.html.twig', 
                             [
                                 'categories' => $categories, 

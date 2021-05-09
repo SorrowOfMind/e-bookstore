@@ -2,38 +2,50 @@
 
 namespace App\Entity;
 
-use App\Repository\BannersRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=BannersRepository::class)
+ * Banners
+ *
+ * @ORM\Table(name="banners")
+ * @ORM\Entity
  */
 class Banners
 {
     /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255, nullable=false)
      */
     private $name;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @var string
+     *
+     * @ORM\Column(name="path", type="string", length=255, nullable=false)
      */
     private $path;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @var string
+     *
+     * @ORM\Column(name="link", type="string", length=255, nullable=false)
      */
     private $link;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @var string
+     *
+     * @ORM\Column(name="role", type="string", length=255, nullable=false)
      */
     private $role;
 
@@ -89,4 +101,6 @@ class Banners
 
         return $this;
     }
+
+
 }
