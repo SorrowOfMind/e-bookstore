@@ -1,0 +1,27 @@
+.section-main {
+    background-color: #fff;
+    margin-top: 3rem;
+    .section-main-title {
+        @include fluid-font(22px, 32px);
+        border-top: 1px solid $color-font-main;
+        border-bottom: 1px solid $color-font-main;
+        padding: 2rem 1rem;
+        color: $color-font-main;
+    }
+    .section-cards {
+        @include flexbox(row, space-between, stretch);
+        padding: .5rem 0;
+        .product-card {
+            border: 1px solid red;
+            padding: 2rem 1rem;
+            flex: 1;
+            &:not(:last-child) {
+                margin-right: 0.5rem;
+            }
+        }
+        .product-card-title {
+            @include fluid-font(12px, 14px);
+            font-weight: 800;
+        }
+    }
+}

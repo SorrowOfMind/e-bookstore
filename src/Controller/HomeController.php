@@ -31,14 +31,18 @@ class HomeController extends AbstractController
         $banners = $this->getDoctrine()->getRepository(Banners::class)->findBy(['role' => 'main']);
         
         //fetch sections - bestsellers, top deals, previews
-        $products = $this->getDoctrine()->getRepository(Products::class)->getBestsellers();
-        dump($products);
+        $bestsellers = $this->getDoctrine()->getRepository(Products::class)->getBestsellers();
+        $topdeals = $this->getDoctrine()->getRepository(Products::class)->getTopDeals();
+        $previews = $this->getDoctrine()->getRepository(Products::class)->getPreviews();
 
         return $this->render('home/index.html.twig', 
                             [
                                 'categories' => $categories, 
                                 'subcategories' => $subcategoriesNames,
-                                'banners'=> $banners
+                                'banners'=> $banners,
+                                'bestsellers'=>$bestsellers,
+                                'topdeals'=>$topdeals,
+                                'previews'=>$previews
                             ]);
     }
 }

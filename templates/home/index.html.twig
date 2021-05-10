@@ -53,5 +53,53 @@
             </ul>
         </section>
     </section>
+
+    <section class="section-main section-bessellers">
+        <h2 class="section-main-title">Bestsellers</h2>
+        <div class="section-cards">
+            {% for bestseller in bestsellers %}
+            <div class="product-card">
+                <p class="product-card-title">{{ bestseller.name }}</p>
+                <p>author</p>
+                <p>price</p>
+            </div>
+            {% endfor %}
+            <div class="product-card">
+                <p class="product-card-title">See more</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-main section-topdeals">
+        <h2 class="section-main-title">Top Deals</h2>
+        <div class="section-cards">
+            {% for topdeal in topdeals %}
+            <div class="product-card">
+                <p class="product-card-title">{{ topdeal.name }}</p>
+                <p>author</p>
+                <p>price</p>
+            </div>
+            {% endfor %}
+            <div class="product-card">
+                <p class="product-card-title">See more</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-main section-previews">
+        <h2 class="section-main-title">Previews</h2>
+        <div class="section-cards">
+            {% for preview in previews %}
+            <div class="product-card">
+                <p class="product-card-title">{{ preview.name }}</p>
+                <p>author</p>
+                <p>price</p>
+            </div>
+            {% endfor %}
+            <div class="product-card">
+                <p class="product-card-title">See more</p>
+            </div>
+        </div>
+    </section>
 </main>
 {% endblock %}
