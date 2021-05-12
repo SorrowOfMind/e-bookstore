@@ -26,7 +26,7 @@ class ProductsRepository extends ServiceEntityRepository
                 FROM products p
                 RIGHT JOIN bestsellers b
                     ON b.product_id = p.id
-                LIMIT 10";
+                LIMIT 5";
         $stmt = $conn->prepare($query);
         $stmt->execute();
 
@@ -40,7 +40,7 @@ class ProductsRepository extends ServiceEntityRepository
                 FROM products p
                 RIGHT JOIN topdeals t
                     ON t.product_id = p.id
-                LIMIT 10";
+                LIMIT 5";
         $stmt = $conn->prepare($query);
         $stmt->execute();
 

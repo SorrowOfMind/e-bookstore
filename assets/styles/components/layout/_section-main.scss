@@ -12,8 +12,10 @@
         @include flexbox(row, space-between, stretch);
         padding: .5rem 0;
         .product-card {
-            border: 1px solid red;
+            border: 1px solid $color-light-grey;
             padding: 2rem 1rem;
+            overflow: hidden;
+            cursor: pointer;
             flex: 1;
             &:not(:last-child) {
                 margin-right: 0.5rem;
@@ -22,6 +24,21 @@
         .product-card-title {
             @include fluid-font(12px, 14px);
             font-weight: 800;
+            padding-top: 1rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .product-card-more {
+            @include flexbox(row, center, center);
+        }
+        .product-card.product-card-more .product-card-title {
+            @include fluid-font(22px, 26px);
+            color: $color-light-grey;
+        }
+        .product-card-ellipsis {
+            display: block;
+            text-align: center;
         }
     }
 }

@@ -59,13 +59,15 @@
         <div class="section-cards">
             {% for bestseller in bestsellers %}
             <div class="product-card">
+                <img src={{ asset('build' ~ '/images/products/placeholder120x160.png') }} alt="product cover">
                 <p class="product-card-title">{{ bestseller.name }}</p>
                 <p>author</p>
+                <div class="review-start"></div>
                 <p>price</p>
             </div>
             {% endfor %}
-            <div class="product-card">
-                <p class="product-card-title">See more</p>
+            <div class="product-card product-card-more">
+                <p class="product-card-title">See more<span class="product-card-ellipsis">...</span></p>
             </div>
         </div>
     </section>
@@ -75,13 +77,15 @@
         <div class="section-cards">
             {% for topdeal in topdeals %}
             <div class="product-card">
+                <img src={{ asset('build' ~ '/images/products/placeholder120x160.png') }} alt="product cover">
                 <p class="product-card-title">{{ topdeal.name }}</p>
                 <p>author</p>
+                <div class="review-start"></div>
                 <p>price</p>
             </div>
             {% endfor %}
-            <div class="product-card">
-                <p class="product-card-title">See more</p>
+            <div class="product-card product-card-more">
+                <p class="product-card-title">See more<span class="product-card-ellipsis">...</span></p>
             </div>
         </div>
     </section>
@@ -91,13 +95,15 @@
         <div class="section-cards">
             {% for preview in previews %}
             <div class="product-card">
+                <img src={{ asset('build' ~ '/images/products/placeholder120x160.png') }} alt="product cover">
                 <p class="product-card-title">{{ preview.name }}</p>
                 <p>author</p>
+                <div class="review-start"></div>
                 <p>price</p>
             </div>
             {% endfor %}
-            <div class="product-card">
-                <p class="product-card-title">See more</p>
+            <div class="product-card product-card-more">
+                <p class="product-card-title">See more<span class="product-card-ellipsis">...</span></p>
             </div>
         </div>
     </section>
