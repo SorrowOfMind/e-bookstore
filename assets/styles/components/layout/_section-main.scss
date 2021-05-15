@@ -10,15 +10,17 @@
     }
     .section-cards {
         @include flexbox(row, space-between, stretch);
-        padding: .5rem 0;
         .product-card {
-            border: 1px solid $color-light-grey;
+            border: 1px solid transparent;
             padding: 2rem 1rem;
             overflow: hidden;
             cursor: pointer;
             flex: 1;
             &:not(:last-child) {
                 margin-right: 0.5rem;
+            }
+            &:hover {
+                border: 1px solid $color-light-grey;
             }
         }
         .product-card-title {
@@ -29,6 +31,18 @@
             overflow: hidden;
             text-overflow: ellipsis;
         }
+
+        .product-card-creator, .product-card-rating, .product-card-price {
+            @include fluid-font(12px, 14px);
+            padding-top: .6rem;
+        }
+
+        .product-card-price {
+            font-weight: 800;
+            color: $color-red-price;
+            text-align: right;
+        }
+
         .product-card-more {
             @include flexbox(row, center, center);
         }

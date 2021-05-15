@@ -61,9 +61,9 @@
             <div class="product-card">
                 <img src={{ asset('build' ~ '/images/products/placeholder120x160.png') }} alt="product cover">
                 <p class="product-card-title">{{ bestseller.name }}</p>
-                <p>author</p>
-                <div class="review-start"></div>
-                <p>price</p>
+                <p class="product-card-creator">{{ bestseller.creator }}</p>
+                <div class="product-card-rating">{{ bestseller.rating }}/5</div>
+                <p class="product-card-price">${{ bestseller.price }}</p>
             </div>
             {% endfor %}
             <div class="product-card product-card-more">
@@ -79,9 +79,9 @@
             <div class="product-card">
                 <img src={{ asset('build' ~ '/images/products/placeholder120x160.png') }} alt="product cover">
                 <p class="product-card-title">{{ topdeal.name }}</p>
-                <p>author</p>
-                <div class="review-start"></div>
-                <p>price</p>
+                <p class="product-card-creator">{{ topdeal.creator }}</p>
+                <div class="product-card-rating">{{ topdeal.rating }}/5</div>
+                <p class="product-card-price">${{ topdeal.price }}</p>
             </div>
             {% endfor %}
             <div class="product-card product-card-more">
@@ -97,9 +97,7 @@
             <div class="product-card">
                 <img src={{ asset('build' ~ '/images/products/placeholder120x160.png') }} alt="product cover">
                 <p class="product-card-title">{{ preview.name }}</p>
-                <p>author</p>
-                <div class="review-start"></div>
-                <p>price</p>
+                <p class="product-card-creator">{{ preview.creator }}</p>
             </div>
             {% endfor %}
             <div class="product-card product-card-more">
