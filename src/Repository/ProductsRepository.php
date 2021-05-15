@@ -21,15 +21,48 @@ class ProductsRepository extends ServiceEntityRepository
 
     public function getBestsellers()
     {
-        $em = $this->getEntityManager();
-        $query = $em->createQuery(
-            "SELECT p.id, p.category 
-            FROM products p
-            LEFT JOIN bestsellers b
-                ON b.product_id = p.id
-            LIMIT 4"
-        );
-        return $query->getResult();
+        $conn = $this->getEntityManager()->getConnection();
+        $query = "SELECT p.id, p.category, p.name, p.creator, p.price, p.rating 
+                FROM products p
+                RIGHT JOIN bestsellers b
+                    ON b.product_id = p.id
+                WHERE p.is_available = 1
+                LIMIT 5";
+        $stmt = $conn->prepare($query);
+        $stmt->execute();
+
+        return $stmt->fetchAllAssociative();
+    }
+
+    public function getTopDeals()
+    {
+        $conn = $this->getEntityManager()->getConnection();
+        $query = "SELECT p.id, p.category, p.name, p.creator, p.price, p.rating  
+                FROM products p
+                RIGHT JOIN topdeals t
+                    ON t.product_id = p.id
+                WHERE p.is_available = 1
+                LIMIT 5";
+        $stmt = $conn->prepare($query);
+        $stmt->execute();
+
+        return $stmt->fetchAllAssociative();
+    }
+
+    public function getPreviews()
+    {
+        $conn = $this->getEntityManager()->getConnection();
+        $query = "SELECT p.id, p.category, p.name, p.creator
+                FROM products p
+                RIGHT JOIN previews pr
+					ON pr.product_id = p.id
+                WHERE p.is_available = 0
+                LIMIT 10";
+
+		$stmt = $conn->prepare($query);
+		$stmt->execute();
+
+		return $stmt->fetchAllAssociative();
     }
    
 }

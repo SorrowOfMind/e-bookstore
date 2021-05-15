@@ -53,5 +53,57 @@
             </ul>
         </section>
     </section>
+
+    <section class="section-main section-bessellers">
+        <h2 class="section-main-title">Bestsellers</h2>
+        <div class="section-cards">
+            {% for bestseller in bestsellers %}
+            <div class="product-card">
+                <img src={{ asset('build' ~ '/images/products/placeholder120x160.png') }} alt="product cover">
+                <p class="product-card-title">{{ bestseller.name }}</p>
+                <p class="product-card-creator">{{ bestseller.creator }}</p>
+                <div class="product-card-rating">{{ bestseller.rating }}/5</div>
+                <p class="product-card-price">${{ bestseller.price }}</p>
+            </div>
+            {% endfor %}
+            <div class="product-card product-card-more">
+                <p class="product-card-title">See more<span class="product-card-ellipsis">...</span></p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-main section-topdeals">
+        <h2 class="section-main-title">Top Deals</h2>
+        <div class="section-cards">
+            {% for topdeal in topdeals %}
+            <div class="product-card">
+                <img src={{ asset('build' ~ '/images/products/placeholder120x160.png') }} alt="product cover">
+                <p class="product-card-title">{{ topdeal.name }}</p>
+                <p class="product-card-creator">{{ topdeal.creator }}</p>
+                <div class="product-card-rating">{{ topdeal.rating }}/5</div>
+                <p class="product-card-price">${{ topdeal.price }}</p>
+            </div>
+            {% endfor %}
+            <div class="product-card product-card-more">
+                <p class="product-card-title">See more<span class="product-card-ellipsis">...</span></p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-main section-previews">
+        <h2 class="section-main-title">Previews</h2>
+        <div class="section-cards">
+            {% for preview in previews %}
+            <div class="product-card">
+                <img src={{ asset('build' ~ '/images/products/placeholder120x160.png') }} alt="product cover">
+                <p class="product-card-title">{{ preview.name }}</p>
+                <p class="product-card-creator">{{ preview.creator }}</p>
+            </div>
+            {% endfor %}
+            <div class="product-card product-card-more">
+                <p class="product-card-title">See more<span class="product-card-ellipsis">...</span></p>
+            </div>
+        </div>
+    </section>
 </main>
 {% endblock %}
