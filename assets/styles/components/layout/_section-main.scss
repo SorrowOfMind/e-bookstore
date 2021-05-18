@@ -1,6 +1,9 @@
 .section-main {
     background-color: #fff;
     margin-top: 3rem;
+    &:last-of-type {
+        margin-bottom: 3rem;
+    }
     .section-main-title {
         @include fluid-font(22px, 32px);
         border-top: 1px solid $color-font-main;
