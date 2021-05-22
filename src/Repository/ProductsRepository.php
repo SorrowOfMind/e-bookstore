@@ -19,15 +19,24 @@ class ProductsRepository extends ServiceEntityRepository
         parent::__construct($registry, Products::class);
     }
 
-    public function getBestsellers()
+    public function getBestsellers(int $category = NULL, int $subcategory = NULL)
     {
+        if (isset($category) && $category != NULL) $sqlExpressionCat = " && p.category = {$category}";
+        else $sqlExpressionCat = "";
+
+        if (isset($subcategory) && $subcategory != NULL) $sqlExpressionSub = " && p.subcategory_id_id = {$subcategory}";
+        else $sqlExpressionSub = "";
+       
         $conn = $this->getEntityManager()->getConnection();
         $query = "SELECT p.id, p.category, p.name, p.creator, p.price, p.rating 
                 FROM products p
                 RIGHT JOIN bestsellers b
                     ON b.product_id = p.id
-                WHERE p.is_available = 1
-                LIMIT 5";
+                WHERE p.is_available = 1"
+                . $sqlExpressionCat
+                . $sqlExpressionSub
+                . " LIMIT 5";
+                
         $stmt = $conn->prepare($query);
         $stmt->execute();
 

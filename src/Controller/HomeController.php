@@ -16,7 +16,7 @@ class HomeController extends AbstractController
     {
         //fetch categories + subcategories
         $categories = $this->getDoctrine()->getRepository(Categories::class)->findAll();
-       
+        
         $subcategoriesNames = [];    
 
         foreach($categories as $category){
