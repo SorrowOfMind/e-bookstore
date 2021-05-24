@@ -17,14 +17,24 @@ class CategoriesController extends AbstractController
     {
         $requestUri = $request->getPathInfo();
         $category = $this->getDoctrine()->getRepository(Categories::class)->findOneBy(['link' => $requestUri]);
+        dump($category);
         $categoryId = $category->getId();
         
+        $productsRepository = $this->getDoctrine()->getRepository(Products::class);
+
         //bestsellers
-        $bestsellers = $this->getDoctrine()->getRepository(Products::class)->getBestsellers($categoryId);
-        dump($bestsellers);
+        $bestsellers = $productsRepository->getBestsellers($categoryId);
         
+        //topdeals
+        $topdeals = $productsRepository->getTopDeals($categoryId);
+
+        //previews
+        $previews = $productsRepository->getPreviews($categoryId);
+
         return $this->render('categories/index.html.twig', [
-            'bestsellers'=>$bestsellers
+            'bestsellers'=>$bestsellers,
+            'topdeals'=>$topdeals,
+            'previews'=>$previews
         ]);
     }
 }
