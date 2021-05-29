@@ -16,7 +16,7 @@ class HomeController extends AbstractController
     {
         //fetch categories + subcategories
         $categories = $this->getDoctrine()->getRepository(Categories::class)->findAll();
-       
+        
         $subcategoriesNames = [];    
 
         foreach($categories as $category){
@@ -31,9 +31,10 @@ class HomeController extends AbstractController
         $banners = $this->getDoctrine()->getRepository(Banners::class)->findBy(['role' => 'main']);
         
         //fetch sections - bestsellers, top deals, previews
-        $bestsellers = $this->getDoctrine()->getRepository(Products::class)->getBestsellers();
-        $topdeals = $this->getDoctrine()->getRepository(Products::class)->getTopDeals();
-        $previews = $this->getDoctrine()->getRepository(Products::class)->getPreviews();
+        $productsRepo = $this->getDoctrine()->getRepository(Product::class);
+        $bestsellers = $productsRepo->getBestsellers();
+        $topdeals = $productsRepo->getTopDeals();
+        $previews = $productsRepo->getPreviews();
 
         return $this->render('home/index.html.twig', 
                             [
